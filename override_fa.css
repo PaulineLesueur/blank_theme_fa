@@ -1,0 +1,890 @@
+/* ============================================================
+   OVERRIDE_FA.CSS
+   Neutralisation du CSS indésirable de ForumActif (ModernBB)
+   À importer en premier dans le CSS du forum
+   ============================================================ */
+
+
+/* ============================================================
+   1. RESET GÉNÉRAL
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Scrollbar webkit */
+* html,
+* + html {
+  scrollbar-face-color: unset;
+  scrollbar-highlight-color: unset;
+  scrollbar-shadow-color: unset;
+  scrollbar-3dlight-color: unset;
+  scrollbar-arrow-color: unset;
+  scrollbar-track-color: unset;
+  scrollbar-darkshadow-color: unset;
+}
+
+
+/* ============================================================
+   2. STRUCTURE PRINCIPALE
+   ============================================================ */
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  background-attachment: unset;
+  background-image: none;
+  font-size: unset;
+  line-height: unset;
+}
+
+body {
+  display: block;
+  flex-direction: unset;
+  min-height: unset;
+}
+
+/* Neutralisation du wrap FA */
+#wrap {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-size: unset;
+}
+
+.wrap {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+#simple-wrap {
+  padding: 0;
+}
+
+/* Flex trick FA pour le footer collé */
+.conteneur_minwidth_IE {
+  flex: unset;
+}
+
+#page-body {
+  width: 100%;
+
+  &::after {
+    display: none;
+  }
+
+  p.page-bottom {
+    display: none;
+  }
+}
+
+
+/* ============================================================
+   3. HEADER FA
+   ============================================================ */
+
+/* Grande bannière FA — image gérée en HTML dans overall_header */
+.headerbar {
+  background-color: transparent;
+  height: unset;
+  padding: 0;
+  margin: 0;
+  overflow: unset;
+}
+
+/* Barre sticky FA — complètement neutralisée
+   Le header est géré en HTML dur avec une balise dédiée */
+#headerbar-top,
+.is-sticky #headerbar-top,
+.is-sticky.w-toolbar #headerbar-top {
+  background-color: transparent;
+  box-shadow: none;
+  position: static;
+  height: unset;
+  text-align: unset;
+  padding: 0;
+  left: unset;
+  right: unset;
+  top: unset;
+  z-index: unset;
+
+  &::after {
+    display: none;
+  }
+}
+
+/* Annulation des effets .is-sticky sur les enfants */
+.is-sticky #logo,
+.is-sticky .navbar li {
+  all: unset;
+}
+
+/* Logo FA */
+#logo {
+  display: none;
+}
+
+/* Titre et description du site FA */
+#site-title,
+#site-title h1,
+#site-desc,
+#site-desc p {
+  display: none;
+}
+
+/* Sub-header (fil d'ariane du header) */
+.sub-header {
+  display: none;
+}
+
+
+/* ============================================================
+   4. NAVBAR FA
+   ============================================================ */
+
+.navbar {
+  text-align: unset;
+
+  /* Icônes des liens de navigation */
+  img {
+    display: none;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    font-size: unset;
+    padding: unset;
+    border-radius: unset;
+    line-height: unset;
+
+    &:hover {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  /* Compteur de nouveaux messages */
+  .new-message {
+    background-color: transparent;
+    color: unset;
+    border-radius: unset;
+    padding: unset;
+  }
+}
+
+/* Barre de recherche */
+#search-box {
+  margin: 0;
+  float: unset;
+  white-space: unset;
+
+  #keywords {
+    width: unset;
+    background-color: transparent;
+  }
+
+  input {
+    border: none;
+  }
+
+  input.button1 {
+    padding: unset;
+  }
+}
+
+/* Linklists (bordures haut/bas de nav) */
+.linklist {
+  border: none;
+  margin: 0;
+
+  &.top,
+  &.bottom {
+    border: none;
+    padding: 0;
+  }
+
+  li {
+    float: unset;
+    margin: 0;
+
+    &.rightside {
+      float: unset;
+      margin: 0;
+    }
+  }
+}
+
+
+/* ============================================================
+   5. FA TICKER (annonce défilante)
+   ============================================================ */
+
+#fa_ticker_block {
+  margin: 0 !important;
+
+  .module {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+#fa_ticker * {
+  transition: none;
+}
+
+#fa_ticker_container {
+  margin: 0 !important;
+}
+
+
+/* ============================================================
+   6. CATÉGORIES ET FORUMS (forabg / forumbg)
+   ============================================================ */
+
+/* Conteneurs de catégorie */
+.forabg,
+.forumbg {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 0;
+
+  /* Dernier élément */
+  .row:last-child {
+    border-radius: 0;
+  }
+
+  /* Header de catégorie */
+  .header {
+    position: unset;
+
+    i {
+      display: none;
+    }
+  }
+}
+
+/* Bouton collapse des catégories */
+.btn-collapse {
+  display: none;
+}
+
+/* Liste des forums */
+ul.forums {
+  background-color: transparent;
+  background-image: none;
+  border-radius: 0;
+  overflow: unset;
+  transition: none;
+
+  /* Icône de statut lu/non lu gérée en HTML */
+  dl.icon {
+    background-image: none !important;
+    background-position: unset !important;
+    min-height: unset;
+
+    dt,
+    dd.dterm {
+      background-image: none;
+    }
+  }
+
+  /* Marge forcée par FA quand icône présente */
+  dl.icon dd.dterm > div {
+    margin-left: 0 !important;
+  }
+}
+
+/* Lignes de forum */
+li.row {
+  border: none;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+/* Header de ligne */
+li.header {
+  dt,
+  dd {
+    color: unset;
+    font-size: unset;
+    font-family: unset;
+    text-transform: unset;
+    line-height: unset;
+  }
+
+  /* Icône dans le header */
+  dl.icon {
+    min-height: unset;
+
+    dt,
+    dd.dterm {
+      padding-left: 0;
+    }
+  }
+}
+
+/* Colonnes de stats */
+ul.topiclist {
+  background-image: none;
+
+  dt,
+  dd.dterm {
+    font-size: unset;
+    padding: 0;
+    width: unset;
+  }
+
+  dd {
+    padding: 0;
+  }
+
+  /* Masquage dfn (déjà masqué par FA mais autant être explicite) */
+  dfn {
+    display: none;
+  }
+
+  li.header dl dd {
+    border: none;
+  }
+
+  dd.searchby span,
+  dd.info span,
+  dd.time span {
+    padding-left: 0;
+  }
+}
+
+dd.lastpost {
+  font-size: unset;
+  line-height: unset;
+  padding: 0 !important;
+  width: unset;
+}
+
+dd.posts,
+dd.topics,
+dd.views {
+  font-size: unset;
+  width: unset;
+}
+
+dd.mark {
+  width: unset;
+  line-height: unset;
+  font-size: unset;
+}
+
+
+/* ============================================================
+   7. ÉLÉMENTS VISUELS FA À SUPPRIMER
+   ============================================================ */
+
+/* Coins décoratifs FA */
+span.corners-top,
+span.corners-bottom {
+  display: none !important;
+}
+
+/* Sprites (icônes statut lu/non lu, flèches, etc.)
+   Gérés en HTML direct, on neutralise tout le système */
+[class*="sprite-"] {
+  display: none;
+}
+
+/* Icône de pagination image */
+.pagination span a.pag-img {
+  display: none;
+}
+
+/* Fil d'ariane du sub-header */
+.sub-header-path {
+  display: none;
+}
+
+/* Boutons sub-header */
+.sub-header-buttons {
+  display: none;
+}
+
+/* Description de page FA */
+#page-desc {
+  display: none;
+}
+
+/* Image "fond" FA vide (gif transparent) */
+img[src="https://2img.net/i/fa/empty.gif"] {
+  display: none;
+}
+
+
+/* ============================================================
+   8. FOOTER FA
+   ============================================================ */
+
+/* Section statistiques FA (barre sombre avec chiffres) */
+.statistics {
+  background-color: transparent;
+  padding: 0;
+  color: unset;
+
+  .statistics-item {
+    float: unset;
+    width: unset;
+    text-align: unset;
+
+    > strong {
+      font-size: unset;
+      line-height: unset;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: unset;
+    }
+  }
+}
+
+/* Footer principal */
+#page-footer {
+  background-color: transparent;
+}
+
+/* Barres footer system/user */
+.footerbar-system,
+.footerbar-user {
+  color: unset;
+  padding: 0;
+
+  a {
+    color: unset;
+  }
+
+  li {
+    float: unset;
+    margin: 0;
+
+    &.rightside {
+      float: unset;
+      margin: 0;
+    }
+  }
+}
+
+/* Copyright FA */
+.copyright {
+  color: unset;
+  font-size: unset;
+  text-align: unset;
+
+  a {
+    color: unset;
+  }
+
+  .copyright-body {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+/* ============================================================
+   9. LAYOUT COLONNES FA (left / right / content)
+   ============================================================ */
+
+#content-container {
+  #container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #content-main {
+    float: unset;
+    width: 100%;
+  }
+
+  /* Colonnes latérales FA désactivées */
+  #left {
+    display: none;
+  }
+
+  #right {
+    display: none;
+  }
+}
+
+#content-main #main {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   10. MODULES FA
+   ============================================================ */
+
+.module {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 0;
+
+  /* Header de module sombre FA */
+  .h3 {
+    background-color: transparent;
+    color: unset;
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    font-size: unset;
+    font-family: unset;
+    text-transform: unset;
+    font-weight: unset;
+  }
+
+  /* Footer de module */
+  .module-footer {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+/* ============================================================
+   11. PANELS FA
+   ============================================================ */
+
+.panel {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding: 0;
+
+  /* Bouton fermeture panel */
+  .panel-close {
+    display: none;
+  }
+}
+
+
+/* ============================================================
+   12. HEADINGS ET TITRES FA
+   ============================================================ */
+
+/* Titre de page h1 */
+h1.page-title {
+  color: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  margin: 0;
+}
+
+/* Titre catégorie dans topiclist */
+#h1-category {
+  font-size: unset;
+  font-weight: unset;
+  line-height: unset;
+}
+
+/* h2 et h3 FA */
+h2 {
+  color: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  margin: 0;
+}
+
+h3,
+.h3 {
+  border: none;
+  color: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  letter-spacing: unset;
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+  strong {
+    font-weight: unset;
+  }
+
+  a,
+  a:link,
+  a:visited,
+  a:active,
+  a:hover {
+    color: unset;
+  }
+}
+
+/* Titres dans .content et .panel */
+.content h2,
+.panel h2 {
+  border: none;
+  color: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  line-height: unset;
+  margin: 0;
+  padding: 0;
+
+  strong {
+    font-weight: unset;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    color: unset;
+  }
+}
+
+
+/* ============================================================
+   13. LIENS FA
+   ============================================================ */
+
+a.forumtitle {
+  display: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  letter-spacing: unset;
+  margin-top: 0;
+
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: unset;
+    text-decoration: unset;
+  }
+}
+
+a.topictitle {
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  color: unset;
+  margin: 0;
+  display: unset;
+  word-break: unset;
+
+  &:hover {
+    color: unset;
+    text-decoration: unset;
+  }
+
+  &:active {
+    color: unset;
+  }
+}
+
+
+/* ============================================================
+   14. ÉDITEUR DE MESSAGE (sceditor)
+   ============================================================ */
+
+.sceditor-container {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  iframe,
+  textarea {
+    background-color: transparent !important;
+    font-family: unset !important;
+    padding: 0 !important;
+  }
+
+  textarea {
+    transition: none;
+  }
+}
+
+.sceditor-toolbar {
+  background-color: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sceditor-group {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  &:first-child {
+    border: none !important;
+  }
+}
+
+.sceditor-button {
+  height: unset !important;
+  padding: 0 !important;
+  width: unset !important;
+
+  &.active,
+  &:active,
+  &:hover,
+  &.hover {
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+}
+
+/* Zone de message */
+#message-box {
+  margin: 0;
+
+  textarea {
+    font-family: unset;
+    width: 100% !important;
+  }
+
+  .sceditor-container {
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0;
+    width: auto !important;
+  }
+}
+
+
+/* ============================================================
+   15. PAGINATION FA
+   ============================================================ */
+
+.pagination {
+  float: unset;
+  font-size: unset;
+
+  > a {
+    float: unset;
+    font-size: unset;
+    margin-top: 0;
+  }
+
+  span strong {
+    background-color: transparent;
+    border-radius: 0;
+    display: unset;
+    font-size: unset;
+    font-weight: unset;
+    line-height: unset;
+    margin: 0;
+    text-align: unset;
+    width: unset;
+  }
+
+  span.page-sep {
+    display: none;
+  }
+}
+
+.row .pagination {
+  display: unset;
+  float: unset;
+  font-size: unset;
+  margin-top: 0;
+  padding: 0;
+}
+
+
+/* ============================================================
+   16. DIVERS FA
+   ============================================================ */
+
+/* Hack IE min-width (inutile mais on neutralise proprement) */
+* html .conteneur_minwidth_IE,
+* html .conteneur_container_IE,
+* html .conteneur_layout_IE {
+  height: unset;
+  padding-left: unset;
+}
+
+/* Clearfix FA */
+#tabs:after,
+.navbar:after,
+fieldset dl:after,
+ul.topiclist dl:after,
+ul.linklist:after,
+dl.polls:after {
+  display: none;
+}
+
+/* Smiley box */
+#smiley-box,
+.smile-status-box {
+  border-radius: 0;
+  float: unset;
+  width: unset;
+}
+
+/* Login popup */
+#login_popup,
+#like_popup,
+#inactive_popup {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: unset;
+  padding: 0;
+}
+
+/* Tooltip FA */
+.tooltipster-base {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Bouton flottant FA */
+.btn-floating-left,
+#push-bell {
+  display: none;
+}
+
+/* Social bookmarking FA */
+#bookmarks {
+  display: none;
+}
+
+/* Icône de sous-forum (puce) */
+ul.topiclist li.row dt a.subforum,
+ul.topiclist li.row dd.dterm a.subforum {
+  background-image: none;
+  padding-left: 0;
+}
