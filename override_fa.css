@@ -129,11 +129,6 @@ body {
   all: unset;
 }
 
-/* Logo FA */
-#logo {
-  display: none;
-}
-
 /* Titre et description du site FA */
 #site-title,
 #site-title h1,
