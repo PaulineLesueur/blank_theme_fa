@@ -317,6 +317,11 @@
     height: 100%;
 }
 
+/** OVERFLOW */
+.overflow-auto {
+    overflow: auto;
+}
+
 /** PADDING */
 .p-0 {
     padding: 0;
