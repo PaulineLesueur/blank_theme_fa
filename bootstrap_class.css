@@ -47,6 +47,19 @@
     transform: translate(-50%, -50%);
 }
 
+/** DISPLAY */
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
 /** FLEXBOX */
 .d-flex {
     display: flex;
