@@ -602,3 +602,16 @@
 .text-justify {
     text-align: justify;
 }
+
+/** FLOAT */
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-none {
+    float: none;
+}
